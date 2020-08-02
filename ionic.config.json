@@ -1,0 +1,7 @@
+{
+  "name": "relpi_me_front_client",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
