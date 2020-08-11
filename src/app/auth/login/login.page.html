@@ -1,0 +1,33 @@
+<ion-content color="primary" padding>
+  <form #form="ngForm" (ngSubmit)="login(form)">
+    <!--login not declared yet-->
+    <ion-grid>
+      <ion-row color="primary" justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <div text-center>
+            <h3>Login</h3>
+          </div>
+          <div padding>
+            <ion-item>
+              <ion-input name="email" type="email" placeholder="E-mail" ></ion-input>
+            </ion-item>
+            <!--ngModel required removed for now-->
+            <ion-item>
+              <ion-input name="password" type="password" placeholder="Senha" ></ion-input>
+            </ion-item>
+            <!--ngModel required removed for now-->
+          </div>
+          <div padding>
+            <ion-button routerLink="/folder/Inbox" routerdirection="forward" size="large" type="submit" [disabled]="form.invalid" expand="block">Login</ion-button>
+          </div>
+          <ion-row>
+            <div text-center>
+              <p>Ainda não tem uma conta?<a routerLink='/register'>
+            Cadastre-se</a></p>
+            </div>
+        </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>
