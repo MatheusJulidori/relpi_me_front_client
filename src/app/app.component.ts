@@ -14,27 +14,27 @@ export class AppComponent implements OnInit {
   public appPages = [
     {
       title: 'Home',
-      url: '/folder/Home',
+      url: 'home',
       icon: 'home'
     },
     {
       title: 'Cadastrar uma tarefa',
-      url: '/folder/Cadastro',
+      url: 'cadastro',
       icon: 'add-circle'
     },
     {
       title: 'Conversas',
-      url: '/folder/Conversas',
+      url: 'chat',
       icon: 'chatbubbles'
     },
     {
       title: 'Minhas tarefas',
-      url: '/folder/Tarefas',
+      url: 'mytasks',
       icon: 'folder'
     },
     {
       title: 'Configurações',
-      url: '/folder/Configurações',
+      url: 'config',
       icon: 'settings'
     },
     {
