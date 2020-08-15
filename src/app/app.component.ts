@@ -14,12 +14,12 @@ export class AppComponent implements OnInit {
   public appPages = [
     {
       title: 'Home',
-      url: '/folder/Home',
+      url: 'home',
       icon: 'home'
     },
     {
       title: 'Cadastrar uma tarefa',
-      url: '/folder/Cadastro',
+      url: 'cadastro',
       icon: 'add-circle'
     },
     {
