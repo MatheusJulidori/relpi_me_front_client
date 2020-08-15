@@ -1,4 +1,4 @@
-<ion-content color="primary" padding style="background-color:#092331;">
+<ion-content color="primary" padding>
   <form #form="ngForm" (ngSubmit)="login(form)">
     <!--login not declared yet-->
     <ion-grid>
@@ -22,7 +22,8 @@
           </div>
           <ion-row>
             <div text-center>
-              <p>Ainda não tem uma conta?<a routerLink='/register' class="register-link"> Cadastre-se</a></p>
+              <p>Ainda não tem uma conta?<a routerLink='/register'>
+            Cadastre-se</a></p>
             </div>
         </ion-row>
         </ion-col>
