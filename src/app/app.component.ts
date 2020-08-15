@@ -24,17 +24,17 @@ export class AppComponent implements OnInit {
     },
     {
       title: 'Conversas',
-      url: '/folder/Conversas',
+      url: 'chat',
       icon: 'chatbubbles'
     },
     {
       title: 'Minhas tarefas',
-      url: '/folder/Tarefas',
+      url: 'mytasks',
       icon: 'folder'
     },
     {
       title: 'Configurações',
-      url: '/folder/Configurações',
+      url: 'config',
       icon: 'settings'
     },
     {

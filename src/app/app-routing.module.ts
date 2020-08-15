@@ -18,7 +18,8 @@ const routes: Routes = [
   {
     path: 'register',
     loadChildren: () => import('./pages/auth/register/register.module').then(m => m.RegisterPageModule)
-  },  {
+  },
+  {
     path: 'home',
     loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
   },
@@ -33,6 +34,10 @@ const routes: Routes = [
   {
     path: 'config',
     loadChildren: () => import('./pages/config/config.module').then( m => m.ConfigPageModule)
+  },
+  {
+    path: 'mytasks',
+    loadChildren: () => import('./pages/mytasks/mytasks.module').then( m => m.MytasksPageModule)
   }
 
 ];
