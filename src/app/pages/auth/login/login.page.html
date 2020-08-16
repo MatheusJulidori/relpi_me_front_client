@@ -1,30 +1,26 @@
-<ion-content color="primary" padding style="background-color:#092331;">
+<ion-content color="dark">
   <form #form="ngForm" (ngSubmit)="login(form)">
     <!--login not declared yet-->
     <ion-grid>
-      <ion-row color="primary" justify-content-center>
-        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
-          <div text-center>
-            <h3>Login</h3>
-          </div>
-          <div padding>
-            <ion-item>
+      <ion-row >
+        <ion-col size-md="6" size-lg="5" size-xs="12">
+          <ion-text class="ion-text-center">
+            <h3 class="auth-identifier-style">Login</h3>
+          </ion-text>
+          <div>
+            <ion-item color="primary">
               <ion-input name="email" type="email" placeholder="E-mail" ></ion-input>
             </ion-item>
             <!--ngModel required removed for now-->
-            <ion-item>
+            <ion-item color="primary">
               <ion-input name="password" type="password" placeholder="Senha" ></ion-input>
             </ion-item>
             <!--ngModel required removed for now-->
           </div>
-          <div padding>
-            <ion-button routerLink="/home" routerdirection="forward" size="large" type="submit" [disabled]="form.invalid" expand="block">Login</ion-button>
+          <div class="ion-text-center">
+            <ion-button routerLink="/home" router-direction="forward" size="large" type="submit" [disabled]="form.invalid" expand="block">Login</ion-button>
+            <ion-text>Ainda não tem uma conta?<a routerLink='/register' style="font-weight: bold;color: #2b957f;text-decoration: none"> Cadastre-se</a></ion-text>
           </div>
-          <ion-row>
-            <div text-center>
-              <p>Ainda não tem uma conta?<a routerLink='/register' class="register-link"> Cadastre-se</a></p>
-            </div>
-        </ion-row>
         </ion-col>
       </ion-row>
     </ion-grid>

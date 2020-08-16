@@ -1,36 +1,46 @@
-<ion-content  color="primary">
+<ion-content  color="dark">
   <form  #form="ngForm" (ngSubmit)="register(form)">
     <!--register not declared yet-->
     <ion-grid>
-      <ion-row color="primary" justify-content-center>
-        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
-          <div text-center>
-            <h3>Crie sua conta:</h3>
-          </div>
-          <div padding>
-            <ion-item>
-              <ion-input  name="name" type="text" placeholder="Nome" ></ion-input>
+      <ion-row class="ion-justify-content-center" style="margin-top:15px">
+        <ion-col size-md="6" size-lg="5" size-xs="12">
+          <ion-text class="ion-text-center">
+            <h3 class="auth-identifier-style">Crie sua conta</h3>
+          </ion-text>
+          <div>
+            <ion-item color="primary">
+              <ion-input  name="name" type="email" placeholder="E-mail" ></ion-input>
             </ion-item>
             <!--ngModel required removed for now-->
-            <ion-item>
-              <ion-input  name="name" type="text" placeholder="Sobrenome" ></ion-input>
+            <ion-item color="primary">
+              <ion-input  name="name" type="text" placeholder="Nome completo" ></ion-input>
             </ion-item>
             <!--ngModel required removed for now-->
-            <ion-item>
-              <ion-input name="email" type="email" placeholder="E-mail" ></ion-input>
+            <ion-item color="primary">
+              <ion-label>Data de nascimento</ion-label>
+              <ion-datetime displayFormat="DD MMM YYYY" value="2000-04-14" placeholder="Data de nascimento"></ion-datetime>
             </ion-item>
             <!--ngModel required removed for now-->
-            <ion-item>
+            <ion-item color="primary">
+              <ion-label>Cidade</ion-label>
+              <ion-select value="Santa Rita do Sapucaí">
+                <ion-select-option value="srs">S. Rita do Sapucaí</ion-select-option>
+                <ion-select-option value="other">Outra</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <!--ngModel required removed for now-->
+            <ion-item color="primary">
               <ion-input name="password" type="password" placeholder="Senha" ></ion-input>
             </ion-item>
             <!--ngModel required removed for now-->
-            <ion-item>
+            <ion-item color="primary">
               <ion-input name="confirm" type="password" placeholder="Confirme sua senha" ></ion-input>
             </ion-item>
             <!--ngModel required removed for now-->
           </div>
-          <div padding>
-            <ion-button routerLink="/login" routerdirection="forward" size="large" type="submit" [disabled]="form.invalid" expand="block">Register</ion-button>
+          <div class="ion-text-center">
+            <ion-button routerLink="/login" router-direction="forward" size="large" type="submit" [disabled]="form.invalid" expand="block">Registrar</ion-button>
+            <ion-text>Já possui uma conta?<a style="font-weight: bold;color: #2b957f;text-decoration: none" routerLink="/login">Faça login!</a></ion-text>
           </div>
         </ion-col>
       </ion-row>
