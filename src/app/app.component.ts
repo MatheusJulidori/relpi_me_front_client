@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
       icon: 'home'
     },
     {
-      title: 'Cadastrar uma tarefa',
+      title: 'Fazer um pedido',
       url: 'cadastro',
       icon: 'add-circle'
     },
@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
       icon: 'chatbubbles'
     },
     {
-      title: 'Minhas tarefas',
+      title: 'Meus pedidos',
       url: 'mytasks',
       icon: 'folder'
     },
@@ -60,7 +60,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    const path = window.location.pathname.split('folder/Home')[1];
+    const path = window.location.pathname.split('Home')[1];
     if (path !== undefined) {
       this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
     }
