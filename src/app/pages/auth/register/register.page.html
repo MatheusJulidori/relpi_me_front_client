@@ -1,5 +1,5 @@
-<ion-content  color="dark">
-  <form  #form="ngForm" (ngSubmit)="register(form)">
+<ion-content color="dark">
+  <form [formGroup]="form">
     <!--register not declared yet-->
     <ion-grid>
       <ion-row class="ion-justify-content-center" style="margin-top:15px">
@@ -9,38 +9,48 @@
           </ion-text>
           <div>
             <ion-item color="primary">
-              <ion-input  name="name" type="email" placeholder="E-mail" ></ion-input>
+              <ion-input formControlName="email" name="name" type="email" placeholder="E-mail"></ion-input>
             </ion-item>
+            <p *ngIf="isInvalid('email')">{{ getErrorMessage(form, 'email') }}</p>
             <!--ngModel required removed for now-->
             <ion-item color="primary">
-              <ion-input  name="name" type="text" placeholder="Nome completo" ></ion-input>
+              <ion-input formControlName="nome" name="name" type="text" placeholder="Nome completo"></ion-input>
             </ion-item>
             <!--ngModel required removed for now-->
             <ion-item color="primary">
               <ion-label>Data de nascimento</ion-label>
-              <ion-datetime displayFormat="DD MMM YYYY" value="2000-04-14" placeholder="Data de nascimento"></ion-datetime>
+              <ion-datetime formControlName="dataNascimento" displayFormat="DD MMM YYYY" value="2000-04-14"
+                placeholder="Data de nascimento">
+              </ion-datetime>
             </ion-item>
+            <p *ngIf="isInvalid('dataNascimento')">{{ getErrorMessage(form, 'dataNascimento') }}</p>
             <!--ngModel required removed for now-->
             <ion-item color="primary">
               <ion-label>Cidade</ion-label>
-              <ion-select value="Santa Rita do Sapucaí">
+              <ion-select formControlName="cidade" value="Santa Rita do Sapucaí">
                 <ion-select-option value="srs">S. Rita do Sapucaí</ion-select-option>
                 <ion-select-option value="other">Outra</ion-select-option>
               </ion-select>
             </ion-item>
+            <p *ngIf="isInvalid('cidade')">{{ getErrorMessage(form, 'cidade') }}</p>
             <!--ngModel required removed for now-->
             <ion-item color="primary">
-              <ion-input name="password" type="password" placeholder="Senha" ></ion-input>
+              <ion-input formControlName="senha" name="password" type="password" placeholder="Senha"></ion-input>
             </ion-item>
+            <p *ngIf="isInvalid('senha')">{{ getErrorMessage(form, 'senha') }}</p>
             <!--ngModel required removed for now-->
             <ion-item color="primary">
-              <ion-input name="confirm" type="password" placeholder="Confirme sua senha" ></ion-input>
+              <ion-input formControlName="confirmaSenha" name="confirm" type="password"
+                placeholder="Confirme sua senha"></ion-input>
             </ion-item>
+            <p *ngIf="isInvalid('confirmaSenha')">{{ getErrorMessage(form, 'confirmaSenha') }}</p>
             <!--ngModel required removed for now-->
           </div>
           <div class="ion-text-center">
-            <ion-button routerLink="/login" router-direction="forward" size="large" type="submit" [disabled]="form.invalid" expand="block">Registrar</ion-button>
-            <ion-text>Já possui uma conta?<a style="font-weight: bold;color: #2b957f;text-decoration: none" routerLink="/login">Faça login!</a></ion-text>
+            <ion-button size="large" [disabled]="form.invalid" expand="block" (click)="register()">Registrar
+            </ion-button>
+            <ion-text>Já possui uma conta?<a style="font-weight: bold;color: #2b957f;text-decoration: none"
+                routerLink="/login">Faça login!</a></ion-text>
           </div>
         </ion-col>
       </ion-row>
