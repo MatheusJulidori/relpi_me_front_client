@@ -13,16 +13,16 @@ export class AuthService {
   private PauthData: BehaviorSubject<any> | null = new BehaviorSubject(null);
   public readonly authData: Observable<any> = this.PauthData.asObservable();
 
-  public token;
+  // public token;
 
-  constructor(public http: HttpClient, private storage: Storage) { }
+  constructor(public http: HttpClient, /*private storage: Storage*/) { }
 
   login(loginData){
-    const urlLogin = this.url + '/login';
+    const urlLogin = this.url + 'login';
     return this.http.post(urlLogin, loginData);
   }
 
-  async saveAuth(authData) {
+  /*async saveAuth(authData) {
     await this.storage.set('authData', authData);
   }
 
@@ -32,5 +32,5 @@ export class AuthService {
 
   async deleteAuthData() {
     await this.storage.remove('authData');
-  }
+  }*/
 }

@@ -40,7 +40,7 @@ export class LoginPage implements OnInit {
 
     this.authService.login(loginData).subscribe(
         async (response: any) => {
-          await this.authService.saveAuth(response);
+          // await this.authService.saveAuth(loginData);
           await Swal.fire({
             title: 'Sucesso!',
             text: 'Logado com sucesso',
