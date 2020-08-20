@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  url: 'relpimiback.herokuapp.com/api/'
+  url: 'https://relpimiback.herokuapp.com/api/'
 };
 
 /*

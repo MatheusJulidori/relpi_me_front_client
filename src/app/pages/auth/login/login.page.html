@@ -1,5 +1,5 @@
 <ion-content color="dark">
-  <form #form="ngForm" (ngSubmit)="login(form)">
+  <form [formGroup]="form">
     <!--login not declared yet-->
     <ion-grid>
       <ion-row >
@@ -9,16 +9,16 @@
           </ion-text>
           <div>
             <ion-item color="primary">
-              <ion-input name="email" type="email" placeholder="E-mail" ></ion-input>
+              <ion-input formControlName="email" name="email" type="email" placeholder="E-mail" ></ion-input>
             </ion-item>
             <!--ngModel required removed for now-->
             <ion-item color="primary">
-              <ion-input name="password" type="password" placeholder="Senha" ></ion-input>
+              <ion-input formControlName="password"  name="password" type="password" placeholder="Senha" ></ion-input>
             </ion-item>
             <!--ngModel required removed for now-->
           </div>
           <div class="ion-text-center">
-            <ion-button routerLink="/home" router-direction="forward" size="large" type="submit" [disabled]="form.invalid" expand="block">Login</ion-button>
+            <ion-button size="large" [disabled]="form.invalid" expand="block" (click)="login()">Login</ion-button>
             <ion-text>Ainda não tem uma conta?<a routerLink='/register' style="font-weight: bold;color: #2b957f;text-decoration: none"> Cadastre-se</a></ion-text>
           </div>
         </ion-col>

@@ -33,9 +33,10 @@ export class RegisterPage implements OnInit {
 
   verificaSenhasIguais(form: FormGroup) {
     return (control: AbstractControl) => {
-      const senha = form.get('senha').value, confirmaSenha = form.get('confirmaSenha').value;
+      const senha = form.get('senha').value;
+      const confirmaSenha = form.get('confirmaSenha').value;
 
-      if (confirmaSenha == '' || confirmaSenha == null) {
+      if (confirmaSenha === '' || confirmaSenha == null) {
         return { required : true } as ValidationErrors;
       } else if (senha !== confirmaSenha) {
         return { senhasDiferentes: true } as ValidationErrors;
@@ -53,7 +54,7 @@ export class RegisterPage implements OnInit {
         ? 'E-mail inválido'
         : form.get(field).hasError('senhasDiferentes')
         ? 'As senhas inseridas são diferentes'
-        : ''
+        : '';
     }
   }
 
@@ -67,8 +68,8 @@ export class RegisterPage implements OnInit {
   formataEnvio() {
     const registerDataReturn = {
       email: this.form.get('email').value,
-      name: this.form.get('nome').value,
-      dataNascimento: this.form.get('dataNascimento').value,
+      fullname: this.form.get('nome').value,
+      birth_date: this.form.get('dataNascimento').value,
       cidade: this.form.get('cidade').value,
       password: this.form.get('senha').value
     };
