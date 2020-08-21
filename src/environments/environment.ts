@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  url: 'https://relpimiback.herokuapp.com/api/'
+  url: 'https://cors-anywhere.herokuapp.com/relpimiback.herokuapp.com/api/'
 };
 
 /*
