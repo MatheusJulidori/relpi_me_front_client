@@ -18,12 +18,16 @@
             </ion-item>
             <!--ngModel required removed for now-->
             <ion-item color="primary">
+              <ion-input formControlName="phone" name="phone" type="tel" pattern="[0-9]{13}" placeholder="Telefone (5535987654321)"></ion-input>
+            </ion-item>
+            <!--ngModel required removed for now-->
+            <!--<ion-item color="primary">
               <ion-label>Data de nascimento</ion-label>
-              <ion-datetime formControlName="dataNascimento" displayFormat="DD MMM YYYY" value="2000-04-14"
+              <ion-datetime formControlName="dataNascimento" displayFormat="YYYY-MMM-DD" value="2000-04-14"
                 placeholder="Data de nascimento">
               </ion-datetime>
             </ion-item>
-            <p *ngIf="isInvalid('dataNascimento')">{{ getErrorMessage(form, 'dataNascimento') }}</p>
+            <p *ngIf="isInvalid('dataNascimento')">{{ getErrorMessage(form, 'dataNascimento') }}</p>-->
             <!--ngModel required removed for now-->
             <ion-item color="primary">
               <ion-label>Cidade</ion-label>

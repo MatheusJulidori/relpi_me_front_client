@@ -3,6 +3,9 @@ import { FormGroup, FormBuilder, FormControl, Validators, AbstractControl, Valid
 import { ApiDjangoService } from 'src/app/services/api-django.service';
 import Swal from 'sweetalert2';
 import { NavController } from '@ionic/angular';
+import validate = WebAssembly.validate;
+import {JsonFormatter} from 'tslint/lib/formatters';
+import {split} from "ts-node";
 
 @Component({
   selector: 'app-register',
@@ -22,9 +25,10 @@ export class RegisterPage implements OnInit {
     this.form = this.formBuilder.group({
       email: new FormControl('', [Validators.required, Validators.email]),
       nome: new FormControl('', [Validators.required]),
-      dataNascimento: new FormControl('', [Validators.required]),
+      // dataNascimento: new FormControl('', [Validators.required]),
       cidade: new FormControl('', [Validators.required]),
       senha: new FormControl('',  [Validators.required]),
+      phone: new FormControl('', [Validators.required]),
       confirmaSenha: new FormControl(null, [Validators.required])
     });
 
@@ -68,10 +72,15 @@ export class RegisterPage implements OnInit {
   formataEnvio() {
     const registerDataReturn = {
       email: this.form.get('email').value,
-      fullname: this.form.get('nome').value,
-      birth_date: this.form.get('dataNascimento').value,
+      full_name: this.form.get('nome').value,
+      birth_date: "2000-01-01",
       cidade: this.form.get('cidade').value,
-      password: this.form.get('senha').value
+      password: this.form.get('senha').value,
+      phone: this.form.get('phone').value,
+      active: "true",
+      staff: "false",
+      admin: "false",
+      last_login: null
     };
 
     return registerDataReturn;
