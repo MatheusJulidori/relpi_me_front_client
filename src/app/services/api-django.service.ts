@@ -12,7 +12,7 @@ export class ApiDjangoService {
 
   register(registerData) {
     // relpimiback.herokuapp.com/api/register
-    const urlRegister = this.url + 'register';
+    const urlRegister = this.url + 'register/';
     return this.http.post(urlRegister, registerData);
   }
 }

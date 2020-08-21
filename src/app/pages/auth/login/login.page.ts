@@ -33,6 +33,8 @@ export class LoginPage implements OnInit {
         email: this.form.get('email').value,
         password: this.form.get('password').value
       };
+
+      return registerDataReturn;
     }
 
   login(){
