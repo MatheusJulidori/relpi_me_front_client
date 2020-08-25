@@ -13,8 +13,35 @@
       <ion-title size="large">Cadastrar uma tarefa</ion-title>
     </ion-toolbar>
   </ion-header>
-
   <div id="container">
-    <p>Pagina cadastro</p>
-  </div>
+    <form [formGroup]="form">
+      <!--register not declared yet-->
+      <ion-grid>
+        <ion-row class="ion-justify-content-center" style="margin-top:15px">
+          <ion-col size-md="6" size-lg="5" size-xs="12">
+            <ion-text class="ion-text-center">
+            </ion-text>
+            <div>
+              <ion-item color="primary">
+                <ion-input formControlName="title" name="title" type="text" placeholder="Título"></ion-input>
+              </ion-item>
+              <!--ngModel required removed for now-->
+              <ion-item color="primary">
+                <ion-input formControlName="description" name="description" type="text" placeholder="Descrição da tarefa"></ion-input>
+              </ion-item>
+              <!--ngModel required removed for now-->
+              <ion-item color="primary">
+                <ion-input formControlName="payment" name="payment" type="number" placeholder="Pagamento R$"></ion-input>
+              </ion-item>
+              <p *ngIf="isInvalid('payment')">{{ getErrorMessage(form, 'payment') }}</p>
+              <!--ngModel required removed for now-->
+              <div class="ion-text-center">
+                <ion-button size="large" [disabled]="form.invalid" expand="block" (click)="cadastrar()">Cadastrar tarefa                </ion-button>
+              </div>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+    </div>
 </ion-content>
