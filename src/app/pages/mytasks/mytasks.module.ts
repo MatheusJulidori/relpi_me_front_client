@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { MytasksPageRoutingModule } from './mytasks-routing.module';
 
 import { MytasksPage } from './mytasks.page';
+import { ApiDjangoService } from 'src/app/services/api-django.service';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { MytasksPage } from './mytasks.page';
     IonicModule,
     MytasksPageRoutingModule
   ],
-  declarations: [MytasksPage]
+  declarations: [MytasksPage],
+  providers: [ApiDjangoService]
 })
 export class MytasksPageModule {}

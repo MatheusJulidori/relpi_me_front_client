@@ -15,7 +15,25 @@
   </ion-header>
 
   <div id="container">
-    <p>Pagina minhas tarefas
-    </p>
+  <ion-content padding>
+   
+    <ion-list>
+      <ion-item-sliding *ngFor="let user of users">
+        <ion-item><!--(click)="openUser(user.id)"-->
+          <h1>{{ user.title }}</h1> 
+          <h2>{{ user.description }}</h2>
+          <h3>{{ user.payment }}</h3>
+          <!--<h4>{{ user.phone }}</h4>-->
+        </ion-item>
+      </ion-item-sliding>
+   
+    </ion-list>
+   
+    <ion-infinite-scroll (ionInfinite)="getUsers($event)">
+      <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Aguarde...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+   
+  </ion-content>
   </div>
 </ion-content>
