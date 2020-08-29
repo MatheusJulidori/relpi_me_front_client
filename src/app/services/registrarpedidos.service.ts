@@ -11,7 +11,7 @@ export class RegistrarpedidosService {
   constructor(private http: HttpClient) { }
 
   registrarPedido(dataPedido){
-    const urlPedido = this.url + 'postarPedido';
+    const urlPedido = this.url + 'postarPedido/';
     return this.http.post(urlPedido, dataPedido);
   }
 }

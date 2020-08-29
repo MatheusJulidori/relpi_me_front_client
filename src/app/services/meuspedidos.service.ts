@@ -1,3 +1,4 @@
+import { JsonFormatter } from 'tslint/lib/formatters';
 import { Injectable } from '@angular/core';
 import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
@@ -14,28 +15,28 @@ export class MeuspedidosService {
 
     return new Promise((resolve, reject) => {
 
-      const urlPedido = this.url + 'buscarTarefas';
+      const urlPedido = this.url + 'available/';
       
       this.http.get(urlPedido)
         .subscribe((result: any) => {
-          resolve(result.json());
+          resolve(result.JsonFormatter);
         },
         (error) => {
-          reject(error);
+          reject(error.JsonFormatter);
         });
     });
   }
 
   get(id: number) {
     return new Promise((resolve, reject) => {
-      let url = this.url + 'buscarTarefas/' + id;
+      let url = this.url + 'available/' + id;
  
       this.http.get(url)
         .subscribe((result: any) => {
-          resolve(result.json());
+          resolve(result.JsonFormatter);
         },
         (error) => {
-          reject(error.json());
+          reject(error.JsonFormatter);
         });
     });
   }

@@ -37,6 +37,7 @@ export class MytasksPage implements OnInit {
   getAllUsers(page: number) {
     this.userProvider.meusPedidos()
       .then((result: any) => {
+        console.log(result);
         for (var i = 0; i < result.data.length; i++) {
           var user = result.data[i];
           this.users.push(user);

@@ -21,7 +21,7 @@ export class CadastroPage implements OnInit {
 
   ngOnInit() {
     this.form = this.formBuilder.group({
-      title: new FormControl('', [Validators.required]),
+      task_name: new FormControl('', [Validators.required]),
       description: new FormControl('', [Validators.required]),
       payment: new FormControl('', [Validators.required, Validators.min(0)]),
     });
@@ -46,13 +46,20 @@ export class CadastroPage implements OnInit {
 
     formataEnvio() {
       const registerDataReturn = {
-        title: this.form.get('title').value,
+       
+        email_client: "null",
+        client_name: "teste",
+        client_phone: "00000000000",
+        is_taken: false,
+        email_helper: "null",
+        helper_name: "null",
+        helper_phone: "null",
+        task_name: this.form.get('task_name').value,
         description: this.form.get('description').value,
         payment: this.form.get('payment').value,
-        // email_client: this.form.get('email').value,
-        email_helper: 'not@taken.com',
-        is_taken: false,
-        pago: false
+        pago: false,
+        cancelado: false,
+        terminado: false
       };
 
       return registerDataReturn;
