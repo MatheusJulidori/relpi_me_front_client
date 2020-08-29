@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{task.task_name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large" class="title_task">{{task.task_name}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <ion-grid>
+      <ion-row>
+        <ion-col class="ion-text-center">
+          <ion-text class="title">{{task.task_name}}</ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <p *ngIf="task.email_helper != 'a'" class="main_text">Nome do Relper: <ion-text class="task_text">{{task.helper_name}}</ion-text></p>
+          <p *ngIf="task.email_helper != 'a'" class="main_text">Contato do Relper: <a class="link_whats" href="https://wa.me/{{task.helper_phone}}">{{task.client_phone}}</a></p>
+          <p class="main_text">Descrição: <ion-text class="task_text">{{task.description}}</ion-text></p>
+          <p class="main_text">Forma de pagamento:
+            <ion-text class="task_text" *ngIf="task.payment == 'c' ">Cartão</ion-text>
+            <ion-text class="task_text" *ngIf="task.payment == 'd' ">Dinheiro</ion-text>
+          </p>
+          <ion-button *ngIf="task.email_client == authData.email" (click)="cancelar(task.id)" class="main-btn-style" color="warning">Cancelar tarefa</ion-button>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>
+

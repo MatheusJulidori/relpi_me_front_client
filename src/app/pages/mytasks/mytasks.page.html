@@ -15,25 +15,22 @@
   </ion-header>
 
   <div id="container">
-  <ion-content padding>
-   
-    <ion-list>
-      <ion-item-sliding *ngFor="let user of users">
-        <ion-item><!--(click)="openUser(user.id)"-->
-          <h1>{{ user.title }}</h1> 
-          <h2>{{ user.description }}</h2>
-          <h3>{{ user.payment }}</h3>
-          <!--<h4>{{ user.phone }}</h4>-->
-        </ion-item>
-      </ion-item-sliding>
-   
-    </ion-list>
-   
-    <ion-infinite-scroll (ionInfinite)="getUsers($event)">
-      <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Aguarde...">
-      </ion-infinite-scroll-content>
-    </ion-infinite-scroll>
-   
-  </ion-content>
+     <ion-grid>
+      <div *ngIf="!verifyEmpty();">
+        <ion-row *ngFor="let task of taskList;" style=" justify-content: center;">
+          <ion-col size="12" class="card card-style" style="">
+            <h3 class="title">{{ task.task_name }}</h3>
+            <ion-button class="btn-acessar" color="primary" (click)="goToTask(task)">
+              Ver detalhes da tarefa
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </div>
+
+      <div *ngIf="verifyEmpty();" >
+        <p class="ion-text-center" style=" color: #138971 !important; font-weight: bolder; font-size: 1.8rem;">Você não tem nenhuma tarefa para executar!</p>
+        <ion-img src="assets/icon/favicon.png" style=""></ion-img>
+      </div>
+     </ion-grid>
   </div>
 </ion-content>

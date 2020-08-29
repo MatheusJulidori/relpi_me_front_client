@@ -31,8 +31,12 @@
               </ion-item>
               <!--ngModel required removed for now-->
               <ion-item color="primary">
-                <ion-input formControlName="payment" name="payment" type="number" placeholder="Pagamento R$"></ion-input>
-              </ion-item>
+                <ion-label>Forma de pagamento</ion-label>
+                <ion-select formControlName="payment" name="payment" value="Forma de pagamento">
+                  <ion-select-option value="c">Cartão</ion-select-option>
+                  <ion-select-option value="d">Dinheiro</ion-select-option>
+                </ion-select>
+                </ion-item>
               <p *ngIf="isInvalid('payment')">{{ getErrorMessage(form, 'payment') }}</p>
               <!--ngModel required removed for now-->
               <div class="ion-text-center">

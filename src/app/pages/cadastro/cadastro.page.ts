@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, FormControl, Validators, AbstractControl, Valid
 import { NavController } from '@ionic/angular';
 import Swal from 'sweetalert2';
 import {RegistrarpedidosService} from '../../services/registrarpedidos.service';
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-cadastro',
@@ -11,11 +12,13 @@ import {RegistrarpedidosService} from '../../services/registrarpedidos.service';
 })
 export class CadastroPage implements OnInit {
   form: FormGroup;
+  authData: any = {};
 
   constructor(
       private formBuilder: FormBuilder,
       private registraPedidoService: RegistrarpedidosService,
-      public navCtrl: NavController
+      public navCtrl: NavController,
+      private authService: AuthService,
       ) { }
 
 
@@ -25,8 +28,13 @@ export class CadastroPage implements OnInit {
       description: new FormControl('', [Validators.required]),
       payment: new FormControl('', [Validators.required, Validators.min(0)]),
     });
+      this.authService.getAuthData().then((response) => {
+      this.authData = response[0];
+    }, error => {
+      console.log(error);
+    });
   }
-  
+
   getErrorMessage(form: FormGroup, field) {
     if (form.get(field)) {
       return form.get(field).hasError('required')
@@ -47,13 +55,13 @@ export class CadastroPage implements OnInit {
     formataEnvio() {
       const registerDataReturn = {
        
-        email_client: "null",
-        client_name: "teste",
-        client_phone: "00000000000",
+        email_client: this.authData.email,
+        client_name: this.authData.full_name,
+        client_phone: this.authData.phone,
         is_taken: false,
-        email_helper: "null",
-        helper_name: "null",
-        helper_phone: "null",
+        email_helper: "a",
+        helper_name: "a",
+        helper_phone: "a",
         task_name: this.form.get('task_name').value,
         description: this.form.get('description').value,
         payment: this.form.get('payment').value,

@@ -23,24 +23,9 @@ export class AppComponent implements OnInit {
       icon: 'add-circle'
     },
     {
-      title: 'Conversas',
-      url: 'chat',
-      icon: 'chatbubbles'
-    },
-    {
       title: 'Meus pedidos',
       url: 'mytasks',
       icon: 'folder'
-    },
-    {
-      title: 'Configurações',
-      url: 'config',
-      icon: 'settings'
-    },
-    {
-      title: 'Sair',
-      url: 'login',
-      icon: 'log-out'
     },
   ];
 

@@ -28,16 +28,12 @@ const routes: Routes = [
     loadChildren: () => import('./pages/cadastro/cadastro.module').then( m => m.CadastroPageModule)
   },
   {
-    path: 'chat',
-    loadChildren: () => import('./pages/chat/chat.module').then( m => m.ChatPageModule)
-  },
-  {
-    path: 'config',
-    loadChildren: () => import('./pages/config/config.module').then( m => m.ConfigPageModule)
-  },
-  {
     path: 'mytasks',
     loadChildren: () => import('./pages/mytasks/mytasks.module').then( m => m.MytasksPageModule)
+  },
+  {
+    path: 'task-details',
+    loadChildren: () => import('./pages/task_details/task_details.module').then(m => m.TaskDetailsModule)
   }
 
 ];
