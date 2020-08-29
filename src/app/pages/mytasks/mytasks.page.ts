@@ -38,11 +38,12 @@ export class MytasksPage implements OnInit {
     this.userProvider.meusPedidos()
       .then((result: any) => {
         console.log(result);
-        for (var i = 0; i < result.data.length; i++) {
-          var user = result.data[i];
+        for (var i = 0; i < result.length; i++) {
+          var user = result[i];
           this.users.push(user);
+          console.log(user.email_client);
         }
-
+      
         if (this.infiniteScroll) {
           this.infiniteScroll.complete();
           if (this.users.length == result.total) {
@@ -52,7 +53,6 @@ export class MytasksPage implements OnInit {
       })
       .catch((error: any) => {
         console.log("ERRO SKJS");
-        console.log(error);
       });
   }
 

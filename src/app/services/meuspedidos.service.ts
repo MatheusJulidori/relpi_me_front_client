@@ -19,10 +19,10 @@ export class MeuspedidosService {
       
       this.http.get(urlPedido)
         .subscribe((result: any) => {
-          resolve(result.JsonFormatter);
+          resolve(result);
         },
         (error) => {
-          reject(error.JsonFormatter);
+          reject(error);
         });
     });
   }
@@ -33,10 +33,10 @@ export class MeuspedidosService {
  
       this.http.get(url)
         .subscribe((result: any) => {
-          resolve(result.JsonFormatter);
+          resolve(result);
         },
         (error) => {
-          reject(error.JsonFormatter);
+          reject(error);
         });
     });
   }
