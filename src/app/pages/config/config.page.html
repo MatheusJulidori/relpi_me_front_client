@@ -15,7 +15,21 @@
   </ion-header>
 
   <div id="container">
-    <p>Pagina configuraçoes
-    </p>
+    <ion-list>
+        <ion-item><!--(click)="openUser(user.id)"-->
+          <ion-avatar>
+            <img icon = 'user'>
+          </ion-avatar>
+        </ion-item>
+        <ion-item>
+          <h2>User teste</h2>
+        </ion-item>
+      </ion-list>
+    <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
+      <ion-item (click)="selectedIndex = i" routerDirection="root" lines="none" detail="false">
+        <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+        <ion-label>{{ p.title }}</ion-label>
+      </ion-item>
+    </ion-menu-toggle>
   </div>
 </ion-content>
