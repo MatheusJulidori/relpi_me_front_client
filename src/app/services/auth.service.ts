@@ -10,19 +10,18 @@ import {environment} from '../../environments/environment';
 export class AuthService {
   url = environment.url;
 
-  private PauthData: BehaviorSubject<any> | null = new BehaviorSubject(null);
-  public readonly authData: Observable<any> = this.PauthData.asObservable();
+  private _authData: BehaviorSubject<any> | null = new BehaviorSubject(null);
+  public readonly authData: Observable<any> = this._authData.asObservable();
 
-  // public token;
 
-  constructor(public http: HttpClient, /*private storage: Storage*/) { }
+  constructor(public http: HttpClient, private storage: Storage) { }
 
   login(loginData){
     const urlLogin = this.url + 'login/';
     return this.http.post(urlLogin, loginData);
   }
 
-  /*async saveAuth(authData) {
+  async saveAuth(authData) {
     await this.storage.set('authData', authData);
   }
 
@@ -32,5 +31,5 @@ export class AuthService {
 
   async deleteAuthData() {
     await this.storage.remove('authData');
-  }*/
+  }
 }
